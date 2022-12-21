@@ -1,0 +1,5 @@
+.flex.items-center
+  %span.mr-2 Search:
+  = form_with url: quotes_path, method: :get, class: 'flex', data: { 'turbo_frame': :quotes, 'turbo-action': :replace, controller: :search, 'search-target': :form } do |form|
+    = form.text_field :query, value: params[:query], data: { action: 'search#search' }, class: 'border rounded border-white border-2 w-full p-1 mr-2'
+    = form.select :order, Quote::ORDER_TYPES.keys, { selected: params[:order] }, data: { action: 'search#submitForm' }, class: 'border rounded border-white border-2 hover:bg-white hover:text-black p-1'

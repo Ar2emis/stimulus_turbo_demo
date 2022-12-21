@@ -1,0 +1,4 @@
+= turbo_frame_tag :pagy do
+  .mt-2.flex.justify-center
+    - if pagy.next.present?
+      = pagy_next_link(pagy, text: 'More...', separate_route: true, link_extra: 'class="border rounded border-white border-2 p-1 hover:bg-white hover:text-black p-2" data-turbo-stream').html_safe

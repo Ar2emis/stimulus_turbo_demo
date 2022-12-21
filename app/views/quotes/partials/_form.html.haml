@@ -1,0 +1,11 @@
+= form_with model: quote, id: dom_id(quote), class: 'flex flex-col' do |form|
+  .flex
+    = form.text_area :text, class: 'border rounded border-white border-2 w-full mr-3 p-1'
+    - if quote.persisted?
+      .flex.flex-col.h-full
+        = link_to 'Cancel', :back, data: { 'turbo-frame': dom_id(quote) }, class: 'h-full text-center w-20 border rounded border-white border-2 p-1 hover:bg-white hover:text-black'
+        = form.button 'Update', type: :submit, class: 'w-20 h-full mt-1 border rounded border-white border-2 p-1 hover:bg-white hover:text-black'
+    - else
+      = form.button 'Create', type: :submit, class: 'w-20 border rounded border-white border-2 p-1 hover:bg-white hover:text-black'
+  - if quote.errors.any?
+    %span.mt-2 Quote #{quote.errors.messages[:text].join(', ')}!

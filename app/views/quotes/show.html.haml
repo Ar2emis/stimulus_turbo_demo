@@ -1,0 +1,11 @@
+%main.p-5.px-20
+  .flex.flex-col.items-center
+    %h1 Quote ##{@quote.id}
+    .mt-5
+      = @quote.text
+    .flex.w-full.mt-5.justify-around
+      %div Created at: #{@quote.created_at.strftime('%m/%d/%Y')}
+      %div Updated at: #{@quote.updated_at.strftime('%m/%d/%Y')}
+    .flex.mt-5.justify-around.w-32
+      = link_to 'Edit', edit_quote_path(@quote), class: 'mr-1 border rounded border-white border-2 p-1 hover:bg-white hover:text-black'
+      = link_to 'Delete', quote_path(id: @quote.id, from: :show), data: { 'turbo-frame': :_top, 'turbo-method': :delete }, class: 'border rounded border-white border-2 p-1 hover:bg-white hover:text-black'

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  background-color: transparent;
+}
+
+body {
+  background-color: #0d1116;
+  color: white;
+}
+
+form {
+  width: 100%;
+}

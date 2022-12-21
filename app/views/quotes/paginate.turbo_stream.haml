@@ -1,0 +1,4 @@
+= turbo_stream.remove :pagy 
+= turbo_stream.append :quotes do
+  = render partial: 'quotes/partials/quote', collection: @quotes
+  = render partial: 'quotes/partials/pagy', locals: { pagy: @pagy }

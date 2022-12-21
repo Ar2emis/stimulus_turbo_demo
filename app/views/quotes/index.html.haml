@@ -1,0 +1,12 @@
+%main
+  .flex.flex-col.items-center
+    %h1.text-2xl.mb-3.mt-6 Quotes
+    .mt-3.py-3{ class: 'w-6/12' }
+      = render partial: 'quotes/partials/filtering'
+    .flex.py-3.items-center{ class: 'w-6/12' }
+      %div{ class: 'flex-[4]'}
+        = render partial: 'quotes/partials/form', locals: { quote: Quote.new }
+    .bg-white{ class: 'h-0.5 w-9/12' }
+  = turbo_frame_tag :quotes, class: 'flex flex-col items-stretch overflow-y-scroll mt-3 mx-auto h-[68vh] w-10/12' do
+    = render partial: 'quotes/partials/quote', collection: @quotes
+    = render partial: 'quotes/partials/pagy', locals: { pagy: @pagy }
